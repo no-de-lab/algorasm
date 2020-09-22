@@ -24,7 +24,7 @@ function isValidSudoku(board: string[][]): boolean {
       // cannot read ... of undefined Error 방지
       columnMemo[j] = columnMemo[j] ?? {};
 
-      // 각 Hash Map 에 key 로 써줄 값 저장
+      // 각 Hash Map 에 key 로 써줄 현재 값 저장
       const currentValue: string = board[i][j];
 
       if (currentValue !== ".") {
@@ -43,7 +43,9 @@ function isValidSudoku(board: string[][]): boolean {
       }
 
       // 부분 Box 초기화
-      if (j === jMax && (i + 1) % 3 === 0) subBoxMemo = {};
+      if (j === jMax && (i + 1) % 3 === 0) {
+        subBoxMemo = {};
+      }
 
       j++;
     }
@@ -59,3 +61,6 @@ function isValidSudoku(board: string[][]): boolean {
 
   return true;
 }
+
+// j 를 jMax 정해서 3개씩만 돌린 이유
+//  : 부분 Box 들을 값을 모두 저장하려면 조건들을 많이 달아야하는데 그게 귀찮았음
