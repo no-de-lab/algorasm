@@ -19,7 +19,6 @@ var reverseBetween = function(head, m, n) {
 class LinkedList {
     constructor(head) {
         this.head = head;
-        this.tail = this.traverseToIndex();
     }
     
     traverseToIndex(index) {
@@ -35,23 +34,44 @@ class LinkedList {
     reverse(m, n) {
         if(!this.head.next) return this.head;
         
-        let start = this.traverseToIndex(m - 1);
-        let end = this.traverseToIndex(n);
-        
-        let first = start.next;
-        let second = start.next.next;
-        
-        
-        
-        while(second !== end.next) {
-            const temp = second.next;
-            second.next = first;
-            first = second;
-            second = temp;
+        // 고정 변수 선언
+        const saved = {
+            beforeStart: undefined, // reverse 시작 노드보다 하나 이전 노드
+            start: undefined,       // reverse 시작 노드
+            end: undefined,         // reverse 마지막 노드
+            afterEnd: undefined,    // reverse 마지막 노드보다 하나 다음 노드
+        };
+
+        saved.end = this.traverseToIndex(n);
+        saved.afterEnd = saved.end.next;
+
+        // reverse 를 head 노드부터 할 때와 그렇지 않을 때의 변수를 달리 선언해준다.
+        if (m === 1) {
+            saved.start = this.head;
+        } else if (m > 1) {
+            saved.beforeStart = this.traverseToIndex(m - 1);
+            saved.start = saved.beforeStart.next;
         }
         
-        start.next = end;
-        end.next = start;
-        return head;
+        // 임시 pointer 선언 및 reverse
+        let left = saved.start;
+        let right = saved.start.next;
+        while(right !== saved.afterEnd) {
+            const temp = right.next;
+            right.next = left;
+            left = right;
+            right = temp;
+        }
+        
+        // reverse 를 head 노드부터 할 때와 그렇지 않을 때, 기존 노드와의 연결 방법이 다르다.
+        if (m === 1) {
+            this.head = saved.end; // head 변경
+        } else if (m > 1) {
+            saved.beforeStart.next = saved.end; // reverse 영역 이전 노드와 reverse 된 노드 연결
+        }
+        
+        saved.start.next = saved.afterEnd;  // reverse 된 노드와 reverse 영역 다음 노드 연결
+
+        return this.head;
     }
 }
