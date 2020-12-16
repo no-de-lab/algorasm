@@ -1,6 +1,6 @@
 ###### 단순 연결 리스트 876. Middle of the Linked List
 
-```
+```javascript
 
 let middleNode = function(head) {
     let targetLen = Math.ceil(getLen(head)/2);
