@@ -1,4 +1,4 @@
-
+```cpp
 class Node {
 public:
     int val;
@@ -27,3 +27,4 @@ public:
 	}
 	return head;
 };
+```
