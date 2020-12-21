@@ -1,4 +1,4 @@
-```
+```java
 /*
 // Definition for a Node.
 class Node {
