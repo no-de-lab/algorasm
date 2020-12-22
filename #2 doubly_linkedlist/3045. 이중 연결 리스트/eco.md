@@ -1,6 +1,6 @@
 언어 : JavaScript
 
-못 풀겠습니다.. ㅠ
+못 풀겠습니다.. ㅠ  
 
 ```javascript
 const inputArray = require('fs').readFileSync('/dev/stdin').toString().split('\n');
