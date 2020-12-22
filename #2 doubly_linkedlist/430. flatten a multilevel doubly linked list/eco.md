@@ -1,6 +1,6 @@
 언어 : javascript
 
-시간복잡도 : O(N)
+시간복잡도 : O(N^2)
 
 ```javascript
 /**
