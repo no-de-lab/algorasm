@@ -13,13 +13,31 @@
  * @param {number} x
  * @return {boolean}
  */
-var btreeGameWinningMove = function (root, n, x) {
-  //x의 자식 노드 갯수가 나머지 갯수들보다 크면, 이긴다.
-  //x를 포함한 자식 노드 갯수가 나머지 갯수들보다 작아도 이긴다.
-  const nodeCount(r){
-      let left;
-      let right;
+var btreeGameWinningMove = function(root, n, x) {
+let node = searchLeaf(root, x)
+   const leftOver = n-(countLeaf(node.left) + countLeaf(node.right) +1)
+   const result = Math.max(leftOver, Math.max(countLeaf(node.left), countLeaf(node.right)))
+return result > (n / 2)? true:false
+   };
 
-  }
-};
+let countLeaf = (node) => {
+    if(node == null){
+        return 0;
+    }
+    let left = countLeaf(node.left)
+    let right = countLeaf(node.right)
+    
+    return left + right + 1
+}
+
+
+let searchLeaf = (node, x) => {
+    if(node==null)
+			return null;
+	if(node.val==x)
+			return node;
+    let left = searchLeaf(node.left, x);
+    let right = searchLeaf(node.right, x);
+    return left === null? right : left
+}
 ```
