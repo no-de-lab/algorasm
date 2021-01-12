@@ -1,0 +1,25 @@
+{
+  "name": "algorasm",
+  "version": "1.0.0",
+  "description": "TypeScript Debugger 사용을 위해 npm 모듈을 추가했습니다.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/no-de-lab/algorasm.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/no-de-lab/algorasm/issues"
+  },
+  "homepage": "https://github.com/no-de-lab/algorasm#readme",
+  "devDependencies": {
+    "ts-node": "^9.1.1"
+  },
+  "dependencies": {
+    "typescript": "^4.1.3"
+  }
+}
