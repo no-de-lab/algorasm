@@ -1,5 +1,6 @@
-시간복잡도 : O(n)
-공간복잡도 : O(n)
+언어: Java\n
+시간복잡도: O(n)\n
+공간복잡도: O(n)
 
 ```.java
 class Solution {
