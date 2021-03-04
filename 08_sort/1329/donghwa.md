@@ -1,7 +1,5 @@
 언어: Java
 
-시간복잡도: O(n^2)
-
 ```.java
 class Solution {
     public int[][] diagonalSort(int[][] mat) {
