@@ -15,9 +15,8 @@ class Solution {
             return;
         }
         int num = (int)digits.charAt(idx)-48;
-        for(int i=0; i<numSet[num].length; i++){
+        for(int i=0; i<numSet[num].length; i++)
             combining(idx+1, letter+numSet[num][i], digits);
-        }
     }
 }
 ```
