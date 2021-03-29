@@ -6,6 +6,15 @@ Time Complexity : O(logN)
 
 Space Complexity : O(logN)
 
+```
+Tree 라고 생각하고 Binary Search 를 사용했다.
+
+        0
+    0        1
+ 0    1    1    0
+0 1  1 0  1 0  0 1
+```
+
 ```javascript
 /**
  * @param {number} N
