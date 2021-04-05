@@ -1,4 +1,5 @@
-언어: 
+언어: 자바
+
 
 ```.java
 class Solution {
