@@ -1,3 +1,7 @@
+언어: 자바
+
+
+```.java
 class Solution {
     public int solution(int N, int number) {
         int answer = 0;
@@ -97,3 +101,4 @@ class Solution {
         return -1;
     }
 }
+```
