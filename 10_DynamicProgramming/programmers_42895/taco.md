@@ -9,7 +9,7 @@ function solution(N, number) {
 }
 
 function describe(N, number, count, res){
-    if(count > 8) return INF
+    if(count > 8) return big
     if(number == res) return count;
     
     let next = 0;
