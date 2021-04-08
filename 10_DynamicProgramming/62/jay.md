@@ -2,29 +2,80 @@
 
 
 ```typescript
-function uniquePaths(m: number, n: number): number {
-  const board = [];
+const MAX_COUNT = 8;
+let N;
+let target;
+const dp = new Array(MAX_COUNT + 1);
+const maxValues = [];
+const totalSet = new Set();
 
-  for (let i = 0; i < m; i++) {
-    const boardLine = new Array(n);
-    board.push(boardLine);
-  }
-  for (let i = 0; i < m; i++) {
-    board[i][0] = 1;
+function solution(n, number) {
+  N = n;
+  target = number;
+
+  if (target === N) {
+    return 1;
   }
 
-  for (let i = 1; i < n; i++) {
-    board[0][i] = 1;
+  for (let i = N, count = 0; count <= MAX_COUNT; count++, i = i * 10 + N) {
+    maxValues[count] = i;
+    totalSet.add(i);
   }
 
-  // 아래로 내려가면서
-  for (let i = 1; i < m; i++) {
-    // 오른쪽으로 더해감
-    for (let j = 1; j < n; j++) {
-      board[i][j] = board[i - 1][j] + board[i][j - 1];
+  for (let i = 1; i <= 8; i++) {
+    dp[i] = new Set();
+    dp[i].add(maxValues[i - 1]);
+  }
+
+  for (let i = 2; i <= MAX_COUNT; i++) {
+    // j는 현재 i의 -1부터 시작하고 k는 1부터 시작해서 서로 아래, 위로 올라가면서 dp Set을 채워 나가야 함!
+    let k = 1;
+    for (let j = i - 1; j > 0; j--, k++) {
+      for (let itemJ of dp[j].values()) {
+        for (let itemK of dp[k].values()) {
+          const plus = itemJ + itemK;
+          const minus = itemJ - itemK;
+          const multiply = itemJ * itemK;
+          const division = itemJ / itemK;
+
+          if (isValid(plus)) {
+            dp[i].add(plus);
+          }
+          if (isValid(minus)) {
+            dp[i].add(minus);
+          }
+          if (isValid(multiply)) {
+            dp[i].add(multiply);
+          }
+          if (isValid(division)) {
+            dp[i].add(division);
+          }
+        }
+      }
+
+      if (dp[i].has(target)) {
+        return i;
+      }
     }
   }
-  
-  return board[m - 1][n - 1];
+
+  return -1;
+}
+
+function isValid(number) {
+  if (number < 1) {
+    return false;
+  }
+
+  if (number > 32000) {
+    return false;
+  }
+
+  if (totalSet.has(number)) {
+    return false;
+  }
+
+  totalSet.add(number);
+  return true;
 }
 ```
