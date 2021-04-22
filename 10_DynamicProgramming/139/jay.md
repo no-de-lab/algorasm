@@ -1,7 +1,7 @@
 Language : typescript
 
 포인트는 팰린트롬을 s를 한글자씩 추가해가면서 모든 경우의 수를 set에 넣어줬어요.
-하지만 dict에서 replace가 가능하다고 왼쪽에 글자가 남아있지 않으면 글자가 제대로 잘린다고 보고 dp에 추가하는 식으로 짜봤어요! 
+dict에 있는 단어가 기존 dp에 있는 데이터에서 replace가 가능하고 왼쪽에 글자가 남아있지 않으면 글자가 제대로 잘린다고 보고 dp에 추가하는 식으로 짜봤어요! 
 ```typescript
 function wordBreak(s: string, wordDict: string[]): boolean {
   const dp = new Array(s.length + 1);
