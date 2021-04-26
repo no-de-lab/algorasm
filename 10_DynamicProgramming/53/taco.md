@@ -1,3 +1,4 @@
+```javascript
 /**
  * @param {number[]} nums
  * @return {number}
@@ -8,3 +9,4 @@ var maxSubArray = function(nums) {
    }
     return Math.max(...nums)
 };
+```
