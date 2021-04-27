@@ -6,7 +6,6 @@
 ```javascript
 
 const findCode = function(a, i, r, decode) {
-
   let code = a[i*r] + a[i*r+1];
   if(code > 26) return decode;
   if(!a[i*r+1]) return decode;
@@ -18,7 +17,7 @@ const numDecodings = function(s) {
     // 0 이 속해있고 그 앞에 있는 수가 2보다 클 경우 어떤 경우에도 decode 조합이 될 수 없음
     // 0 이 처음 올 경우 
     if(s.indexOf("0") !== -1) {
-      if(s[s.indexOf("0") - 1] > 2 || s[0] === "0") return 0; 
+      if(s[s.indexOf("0") - 1] > 2 || s[0] === "0") return 0;
       return 1;
     }
     // 0 이 될만한 경우를 위에서 필터링 되었기 때문에 
@@ -27,7 +26,7 @@ const numDecodings = function(s) {
 
     // 2자리수를 가지는 것이 배열에 몇개까지 가질 수 있냐
     let g = Math.floor(s.length / 2);
-    // 12 34 
+    // 12 34  
 
     // 12 3 4
     // 1 23 4
