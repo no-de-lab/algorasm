@@ -4,20 +4,19 @@
  * @param {number} amount
  * @return {number}
  */
-const big = 11111111;
+
 var coinChange = function(coins, amount) {
-    let answer = describe(coins, amount, 0, 0)
+    const max = Math.max(...coins);
+    
+    let answer = describe(coin, amount, 0, max)
     return answer;
 };
 
-function describe(c, a, count, res){
-    if(a == res) return count;
-    if(a < res) return -1;
-    let num = big;
-    let random = c[Math.floor(Math.random()*c.length)]
-    while(a > res){
-        num = Math.min(num, describe(c, a, count+1, res + random));
-    }   
-    return num;
+function describe(coin, amount, count, max){
+    if(amount == 0) return count;
+    if(amount < 0){
+        
+    }
+    
 }
 ```
