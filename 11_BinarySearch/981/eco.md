@@ -96,17 +96,11 @@ TimeMap.prototype.get = function(key, timestamp) {
         }
     }
     
-    // right 인지 left 인지 한번 더 체크 해주는 이유 :
-    // cur.length = 2 일 경우 위의 while 문이 돌지 않아 어느 것이 최대 t 인지 알 수 없기 때문
-    // (cur.length > 2 일 경우 위의 while 문을 통해 cur[left] 의 t 가 최대값인 것을 알 수 있음)
     if (cur[right].t <= timestamp) return cur[right].v;
     else return cur[left].v;
-};
 
-/** 
- * Your TimeMap object will be instantiated and called as such:
- * var obj = new TimeMap()
- * obj.set(key,value,timestamp)
- * var param_2 = obj.get(key,timestamp)
- */ 
+    //  right 인지 left 인지 한번 더 체크 해주는 이유 :
+    //  cur.length = 2 일 경우 위의 while 문이 돌지 않아 어느 것이 최대 t 인지 알 수 없기 때문
+    //  (cur.length > 2 일 경우 위의 while 문을 통해 cur[left] 의 t 가 최대값인 것을 알 수 있음)
+};
 ```
