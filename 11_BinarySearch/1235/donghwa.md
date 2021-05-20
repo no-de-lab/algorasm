@@ -1,4 +1,4 @@
-...java
+```java
 class Solution {
     int[] _s;
     int[] _e;
@@ -65,4 +65,4 @@ class Solution {
         }
     }
 }
-...
+```
